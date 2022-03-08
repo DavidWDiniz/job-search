@@ -27,6 +27,7 @@ export const Avatar = styled.Image`
   width: 42px;
   height: 42px;
   border-radius: 8px;
+  resize-mode: contain;
 `;
 
 export const Wage = styled.Text<ColorProps>`

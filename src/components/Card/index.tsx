@@ -2,10 +2,15 @@ import React from "react";
 import {Avatar, Container, Content, Header, Title, Wage, Location, Footer, Tags, Icon, Tag, Category } from "./styles";
 
 interface CardProps {
+  avatar: string;
+  wage: string;
+  title: string;
+  location: string;
+  tag?: string[];
   color?: "blue" | "white";
 }
 
-export function Card({color = "blue"}: CardProps) {
+export function Card({avatar, wage, title, location, tag, color = "blue"}: CardProps) {
   return (
     <Container
       color={color}
@@ -13,37 +18,35 @@ export function Card({color = "blue"}: CardProps) {
     >
       <Header>
         <Avatar
-          source={{uri: "https://cdn-icons-png.flaticon.com/512/124/124010.png"}}
+          source={{uri: avatar}}
         />
         <Wage
           color={color}
         >
-          R$ 5000 / mês
+          R$ {wage} / mês
         </Wage>
       </Header>
       <Content>
         <Title
           color={color}
         >
-          Senior Project Manager
+          {title}
         </Title>
         <Location
           color={color}
         >
-          São Paulo - SP
+          {location}
         </Location>
       </Content>
       <Footer>
         <Tags>
-          <Tag>
-            <Category>Senior</Category>
-          </Tag>
-          <Tag>
-            <Category>Remoto</Category>
-          </Tag>
-          <Tag>
-            <Category>Full time</Category>
-          </Tag>
+          {
+            tag && tag.map(category => (
+              <Tag key={category}>
+                <Category>{category}</Category>
+              </Tag>
+            ))
+          }
         </Tags>
         <Icon
           color={color}
