@@ -7,6 +7,8 @@ export const Container = styled.View`
   width: 100%;
   border-radius: 8px;
   padding: 12px 16px;
+  margin-bottom: 22px;
+  margin-top: 22px;
   
   align-items: center;
   justify-content: space-around;

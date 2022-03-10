@@ -1,8 +1,13 @@
-import React, {useState} from "react";
-import {CardSlider, CardText, Container} from "./styles";
+import React from "react";
+import {
+  Avatar,
+  CardCategorySlider, CardCategorySliderContainer, CardSlider,
+  CardSliderContainer, CardText, Container, Greetings, GreetingsSubtitle, GreetingsTitle, Header
+} from "./styles";
 import {Card} from "../../components/Card";
-import {StatusBar} from "react-native";
+import {StatusBar, View} from "react-native";
 import {SearchBar} from "../../components/SearchBar";
+import {CardCategory} from "../../components/CardCategory";
 
 const fakeData = {
   cards: [
@@ -107,21 +112,40 @@ export function Home() {
         barStyle="dark-content"
         backgroundColor="#E5E5E5"
       />
-      <SearchBar />
+      <Header>
+        <Greetings>
+          <GreetingsTitle>Olá, David</GreetingsTitle>
+          <GreetingsSubtitle>Encontre a melhor vaga</GreetingsSubtitle>
+        </Greetings>
+        <Avatar source={{uri: "https://avatars.githubusercontent.com/u/20936380?v=4"}}/>
+      </Header>
+      <SearchBar/>
       <CardText>Mais Populares</CardText>
-      <CardSlider>
-        {fakeData && fakeData.cards.map(card => (
-          <Card
-            key={card.id}
-            avatar={card.avatar}
-            wage={card.wage}
-            title={card.title}
-            location={card.location}
-            tag={card.tag}
-            color={card.color}
-          />
-        ))}
-      </CardSlider>
+      <CardSliderContainer>
+        <CardSlider>
+          {fakeData && fakeData.cards.map(card => (
+            <Card
+              key={card.id}
+              avatar={card.avatar}
+              wage={card.wage}
+              title={card.title}
+              location={card.location}
+              tag={card.tag}
+              color={card.color}
+            />
+          ))}
+        </CardSlider>
+      </CardSliderContainer>
+      <CardCategorySliderContainer>
+        <CardCategorySlider>
+          <CardCategory active/>
+          <CardCategory/>
+          <CardCategory/>
+          <CardCategory/>
+          <CardCategory/>
+        </CardCategorySlider>
+      </CardCategorySliderContainer>
+      <View style={{flex: 1}}/>
     </Container>
   );
 }

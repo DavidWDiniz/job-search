@@ -5,6 +5,7 @@ export default {
     darkGray: "#333333",
     textGray: "#828282",
     white: "#FFFFFF",
+    cardGray: "#E0E0E0",
   },
   fonts: {
     regular: "Inter_400Regular",
